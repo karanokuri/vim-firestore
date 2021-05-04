@@ -20,7 +20,7 @@ class Source(Base):
 
     def on_init(self, context):
         setting = Path(__file__).parent / "firestore.json"
-        with setting.open() as f:
+        with setting.open("r", encoding="utf-8") as f:
             loaded = load(f)
             self.__access_controls = loaded["access_controls"]
             self.__globals = loaded["globals"]
